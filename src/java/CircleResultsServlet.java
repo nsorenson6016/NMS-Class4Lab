@@ -5,6 +5,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "CircleResultsServlet", urlPatterns = {"/CircleResultsServlet"})
 public class CircleResultsServlet extends HttpServlet {
     private static final double PI = 3.14159265359;
+    private static final String destination = "/resultsArea.jsp";
 
     /**
      * Processes requests for both HTTP
@@ -36,6 +38,7 @@ public class CircleResultsServlet extends HttpServlet {
         String radiusStr = request.getParameter("radius").toString();
         double circleArea = (Double.parseDouble(radiusStr) * PI);
         response.sendRedirect("resultsArea.jsp?areaParam=" + circleArea);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
